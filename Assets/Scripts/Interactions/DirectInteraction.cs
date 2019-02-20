@@ -21,7 +21,6 @@ public class DirectInteraction : Interactor
     private void OnTriggerEnter(Collider other)
     {
         SetGrabbable(other.transform);
-       
         
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Interactor : ManagerInteraction
 {
-    DockPinInteraction pin;
 
     public void SetGrabbable(Transform gpos)
     {
@@ -36,12 +35,6 @@ public class Interactor : ManagerInteraction
 
         if (grabbale_object != null)
         {
-            ////if (grabbale_object.GetComponent<DockPinInteraction>())
-            ////{
-            ////    pin = grabbale_object.GetComponent<DockPinInteraction>();
-            ////    pin.Grab(transform);
-            ////    pin.SetContollerPosition(cursor_position);
-            ////}
 
             if (val && obj_type == Interaction_type.Object)
             {
@@ -77,12 +70,6 @@ public class Interactor : ManagerInteraction
                 isgrabbing = false;
                 pressed_button = false;
             }
-            ////if (grabbale_object.GetComponent<DockPinInteraction>())
-            ////{
-            ////    pin = grabbale_object.GetComponent<DockPinInteraction>();
-            ////    pin.Grab(transform);
-            ////    pin.SetContollerPosition(cursor_position);
-            ////}
 
         }
     }
@@ -93,15 +80,13 @@ public class Interactor : ManagerInteraction
         
         if (grabbale_object != null)
         {
-            ////if (pin != null && pin.IsDocked)
-            ////    pin.UpdateDock();
+
             if (isgrabbing && obj_type == Interaction_type.Object)
             {
                 Vector3 pos = cursor_position;
                 Quaternion rot = cursor_rotation;
 
                 //convert child to world and set object 
-
                 Vector3 grabed_pos = child_pos;
                 Quaternion grabed_rot = child_rot;
 
@@ -136,7 +121,6 @@ public class Interactor : ManagerInteraction
                 else
                     slider_value = (curr.y + local_pos) / slider_max_y;
 
-                //Debug.Log("Slider value:" + slider_value);
             }
             else if (isgrabbing && obj_type == Interaction_type.Dial)
             {
@@ -155,7 +139,7 @@ public class Interactor : ManagerInteraction
                     degrees = 360 - degrees;
                 dial_value = degrees;
 
-                //Debug.Log("Dial value:" + dial_value);
+
             }
         }
     }
